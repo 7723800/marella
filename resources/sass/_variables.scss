@@ -1,0 +1,36 @@
+// Mixins
+@import "mixins";
+
+// Header
+$header-height-sm: 60px;
+$header-height-xl: 80px;
+$header-height-lg: 50px;
+// Body
+$main-color: #8e8c8e;
+$donato-color: #414042;
+$brown-color: #5c5251;
+$red: #e83841;
+$grey: #bab9b9;
+$line-color: #e5e5e5;
+$btn-color: #1a73e8;
+$btn-radius: 3px;
+$yellow-color: #f6a20a;
+$transition: all 0.3s ease-in-out;
+//media
+$desktop-width: 1280px;
+$laptop-width: 1025px;
+$mobile-width: 480px;
+// Media queries as strings
+$desktop: "(min-width: #{$desktop-width + 1})";
+$mobile: "(max-width: #{$mobile-width})";
+$laptop: "(min-width: #{$laptop-width}) and (max-width: #{$desktop-width})";
+
+.fade-scale-enter-active,
+.fade-scale-leave-active {
+    transition: all 0.5s ease;
+}
+.fade-scale-enter,
+.fade-scale-leave-to {
+    transform: scale(0);
+    opacity: 0;
+}

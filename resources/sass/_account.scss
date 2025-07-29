@@ -1,0 +1,75 @@
+// home
+.my-account {
+    &__breadcrumbs {
+        @include breadCrumbs;
+    }
+    &__content {
+        min-height: 40vh;
+        margin: 2rem auto;
+        @include get-media($laptop, $desktop) {
+            width: 80%;
+        }
+        &-verify {
+            @include get-media($laptop, $desktop) {
+                min-height: 55vh;
+            }
+            .mail-auth-img {
+                margin: 0 auto;
+                display: block;
+                padding: 5rem 0;
+                width: 50vw;
+                @include get-media($laptop, $desktop) {
+                    width: 20%;
+                }
+            }
+            .verify-body {
+                @include get-media($laptop, $desktop) {
+                    width: 50%;
+                    margin: 0 auto;
+                }
+                a {
+                    @include button(55%);
+                    display: flex;
+                    justify-content: center;
+                    margin: 2em 0;
+                    @include get-media($laptop, $desktop) {
+                        @include button(35%);
+                    }
+                }
+                .alert-success {
+                    color:$red;
+                }
+            }
+        }
+        .alert-success {
+            color:$red;
+            padding-bottom: 30px;
+        }
+    }
+    &__widescreen {
+        @include get-media($laptop, $desktop) {
+            width: 30%;
+        }
+    }
+    &__action {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        .login, .logout {
+            width: inherit;
+            @include button();
+            @include get-media($laptop, $desktop) {
+                @include button(55%);
+                text-align: center;
+            }
+        }
+        .reg-reset {
+            margin: 45px 0;
+            width: 100%;
+            text-align: center;
+            @include button();
+        }
+    }
+}

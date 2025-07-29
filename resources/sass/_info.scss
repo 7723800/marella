@@ -1,0 +1,56 @@
+.info {
+    &-inner {
+        h3 {
+            text-align: center;
+        }
+        p {
+            text-indent: 1.5em;
+        }
+        .call-to-action {
+            color: inherit;
+            margin: 4em 0;
+        }
+    }
+    &_return-form {
+        margin-top: 4rem;
+        @include button(100%);
+        @include get-media($laptop, $desktop) {
+            width: 48%;
+            margin: 4em auto;
+        }
+        .ui_from-group {
+            margin-top: 1rem;
+        }
+        .btn {
+            margin: 4em 0 6em;
+        }
+    }
+    &-oferta {
+        margin-bottom: 4rem;
+        ul {
+            padding-inline-start: 2rem;
+            li {
+                list-style-type: disc;
+            }
+        }
+        .title {
+            font-weight: bold;
+        }
+    }
+    &-kaspiRed {
+        .kaspiRed {
+            &-red {
+                color: $red;
+                font-weight: bold;
+            }
+        }
+        ul {
+            padding-inline-start: 2rem;
+            li {
+                list-style: disc;
+            }
+        }
+    }
+}
+
+

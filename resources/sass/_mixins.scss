@@ -1,0 +1,402 @@
+
+// mixins
+@mixin headerContain {
+    display: flex;
+    justify-content: space-between;
+    width: 29vw;
+    align-items: flex-end;
+}
+@mixin breadCrumbs {
+    .backward {
+        position: relative;
+        @include get-media($laptop, $desktop) {
+            display: none;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            width: 1em;
+            height: 1em;
+            transform: rotate(180deg);
+        }
+    }
+    .title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+@mixin isRevealClass {
+    .is-reveal {
+        svg {
+            transform: rotate(-90deg);
+        }
+    }
+}
+@mixin wishesBasketAlign {
+    height: 43px;
+    display: flex;
+    align-items: flex-end;
+}
+@mixin newSaleRect($bg) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $bg;
+    color: white;
+    height: 14px;
+    width: 36px;
+    padding-top: 2px;
+    font-size: 64%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    @include get-media($desktop) {
+        width: 41px;
+        height: 16px;
+    }
+    &.is-discount {
+        top: 20px;
+    }
+}
+@mixin tableRowStyle {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+    height: 50px;
+    border-top: 1px solid $line-color;
+    align-items: center;
+}
+@mixin prices {
+    display: flex;
+    font-size: 80%;
+    margin: 5px 0;
+    .old {
+        position: relative;
+        color: $grey;
+        font-weight: normal;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            height: 1px;
+            background-color: $grey;
+        }
+    }
+    .new {
+        color: $red;
+        margin-left: 8px;
+    }
+}
+@mixin overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(#000000, 0.5);
+    z-index: 102;
+}
+@mixin modalHeader {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 0;
+    flex-shrink: 0;
+    border-bottom: 1px solid $line-color;
+    @include get-media($laptop, $desktop) {
+        cursor: pointer;
+    }
+    .modal {
+        &-close {
+            position: absolute;
+            right: 20px;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        &-back {
+            position: absolute;
+            left: 20px;
+            display: flex;
+            svg {
+                height: 17px;
+                width: 17px;
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+@mixin modalContent {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    height: calc(100% - 42px);
+    @include get-media($laptop, $desktop) {
+        height: auto;
+        overflow-x: auto;
+    }
+}
+@mixin button($width: 100%) {
+    .btn {
+        background-color: $donato-color;
+        color: white;
+        width: $width;
+        padding: .8em 0;
+        border-radius: $btn-radius;
+        transition: .3s ease-in-out,;
+        transition-property: color, background-color;
+        cursor: pointer;
+    }
+    .btn.inprogress {
+        background-image: linear-gradient(-45deg,rgba(255,255,255,.2) 0,rgba(255,255,255,.2) 25%,rgba(255,255,255,0) 26%,rgba(0,0,0,0) 50%,rgba(255,255,255,.2) 51%,rgba(255,255,255,.2) 75%,rgba(255,255,255,0) 76%);
+        background-size: 20px 20px;
+        animation: background-move 1s linear infinite;
+    }
+}
+@mixin customInputPicker {
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        right: 1.3em;
+        top: 1.3em;
+        @include get-media($laptop, $desktop) {
+            top: .6em;
+            left: 1em;
+        }
+        &:checked ~ .checkmark {
+            background-color: $donato-color;
+            border-color: $donato-color;
+            &:after {
+                display: block;
+            }
+        }
+        &:disabled ~ label {
+            color: $line-color;
+        }
+    }
+    label {
+        flex: 1;
+        @include get-media($laptop, $desktop) {
+            cursor: pointer;
+        }
+    }
+    .checkmark {
+        position: relative;
+        height: 23px;
+        width: 23px;
+        border: 1px solid $line-color;
+        border-radius: 50%;
+        pointer-events: none;
+        @include get-media($laptop, $desktop) {
+            height: 1em;
+            width: 1em;
+            border-radius: $btn-radius;
+            cursor: pointer;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 4px;
+            width: 4px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            display: none;
+            @include get-media($laptop, $desktop) {
+                left: 5px;
+                top: 1px;
+            }
+        }
+    }
+}
+@mixin pseudoLine($top, $bottom: auto, $right: -20px, $left: -20px) {
+	content: "";
+	position: absolute;
+	height: 1px;
+	top: $top;
+	bottom: $bottom;
+	left: $left;
+	right: $right;
+    background: $line-color;
+    @include get-media($laptop, $desktop) {
+        left: 0;
+	    right: 0;
+    }
+}
+@mixin wishes {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 26%;
+    height: 18%;
+    justify-content: center;
+    align-items: center;
+    @include get-media($laptop, $desktop) {
+        width: 22%;
+        height: 15%;
+    }
+    svg {
+        width: 60%;
+        height: 60%;
+    }
+    .fav-in-active {
+        display: flex;
+        z-index: 3;
+        justify-content: center;
+        align-items: center;
+        svg {
+            fill: white;
+        }
+    }
+    .fav-is-active {
+        position: absolute;
+        display: flex;
+        z-index: 2;
+        justify-content: center;
+        align-items: center;
+        svg {
+            fill: $red;
+            width: 55%;
+            height: 55%;
+        }
+    }
+    .fav-back-layer {
+        display: flex;
+        position: absolute;
+        opacity: 0.4;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        svg {
+            fill: $grey;
+        }
+    }
+}
+@mixin dialog {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: rgba(255,255,255,.9);
+    z-index: 102;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    @include get-media($laptop, $desktop) {
+        width: 100vw;
+    }
+}
+@mixin plusIcon {
+    width: 13px;
+    height: 13px;
+    position: relative;
+    @include get-media($laptop, $desktop) {
+        margin-left: 1em;
+    }
+    &::after {
+        content: '';
+        border-bottom: 1px solid;
+        position: absolute;
+        top: 6px;
+        left: 0;
+        right: 0;
+    }
+    &::before {
+        content: '';
+        border-left: 1px solid;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 6px;
+        transition: transform .35s;
+    }
+}
+@mixin dialogContent {
+    border: 1px solid $line-color;
+    display: flex;
+    outline: none;
+    position: relative;
+    text-align: left;
+    box-shadow: 0 25px 50px -8px rgba(0,0,0,0.1);
+    border-radius: $btn-radius;
+    vertical-align: middle;
+    background-color: #fff;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2em;
+    margin-bottom: 10vh;
+    @include get-media($laptop, $desktop) {
+        margin: 0 auto;
+        width: 24vw;
+    }
+    &__close {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        cursor: pointer;
+    }
+    &__text {
+        .tnx {
+            margin-bottom: 40px;
+        }
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    &__action {
+        width: 100%;
+        @include button;
+        .btn {
+            border: 1px solid $donato-color;
+        }
+        .continue {
+            margin-top: 22px;
+            background: transparent;
+            color: $main-color;
+        }
+    }
+}
+
+@mixin bgLoadingAnimation {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    position: relative;
+  }
+
+// Converts a list to a string with delimiters between elements
+@function join-list($list, $separator: ", ") {
+  $result-string: "";
+
+  @each $item in $list {
+    // Index of the current item of `$list` list
+    $index: index($list, $item);
+    $result-string: $result-string + $item;
+
+    // If this is not the last item, adds separator
+    @if ($index != length($list)) {
+      $result-string: $result-string + $separator;
+    }
+  }
+
+  @return $result-string;
+}
+
+@mixin get-media($medias...) {
+  @media #{join-list($medias)} {
+    @content;
+  }
+}

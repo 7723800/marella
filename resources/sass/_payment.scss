@@ -1,0 +1,36 @@
+.payment {
+    &-failed {
+        height: 100%;
+        @include button(50%);
+        button {
+            margin: 2rem 0;
+        }
+        @include get-media($laptop, $desktop) {
+            @include button(20%);
+        }
+    }
+    &-inner {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        .icon-failed{
+            fill: $red;
+            width: 5rem;
+            margin-top: 5vh;
+        }
+        .error {
+            &-msg {
+                margin-top: 2rem;
+                font-size: 21px;
+            }
+            &-text {
+                text-align: center;
+            }
+        }
+        .retry {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

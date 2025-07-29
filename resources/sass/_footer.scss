@@ -1,0 +1,108 @@
+// footer
+.footer {
+    margin-top: 5rem;
+    border-top: 1px solid $line-color;
+    &-content {
+        // margin-top: 3em;
+        background: #fafafa;
+        .container {
+            margin: 0 auto;
+        }
+    }
+    &-info {
+        display: flex;
+        padding: 1.5em 1em;
+        box-sizing: border-box;
+        justify-content: space-around;
+        border-bottom: 1px solid $line-color;
+        @include get-media($laptop, $desktop) {
+            border: none;
+        }
+        img {
+            width: 26vw;
+            @include get-media($laptop, $desktop) {
+                width: 20%;
+            }
+        }
+        &__security {
+            @include get-media($laptop, $desktop) {
+                width: 50%;
+                float: left;
+                justify-content: flex-start;
+                img {
+                    margin-right: 6em;
+                }
+            }
+            .visa {
+                width: 20vw;
+                @include get-media($laptop, $desktop) {
+                    width: auto;
+                }
+            }
+        }
+        &__apps {
+            @include get-media($laptop, $desktop) {
+                width: 50%;
+                justify-content: flex-end;
+                img {
+                    margin-left: 6em;
+                }
+            }
+        }
+        &__vendor {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border: none;
+            @include get-media($laptop, $desktop) {
+                width: 100%;
+            }
+            span {
+                font-size: 90%;
+            }
+            a {
+                max-width: 72px;
+                img {
+                    width: 90%;
+                }
+            }
+            .social {
+                margin-bottom: 0;
+                @include get-media($mobile) {
+                    display: none;
+                }
+                a {
+                    color: inherit;
+                    border: none;
+                    max-width: 100%;
+                    width: 5rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    span {
+                        margin: 8px 0 0;
+                        font-size: 75%;
+                    }
+                    svg {
+                        width: 1.6rem;
+                        height: 1.6rem;
+                    }
+                }
+                .vk, .whattsapp, .facebook {
+                    position: relative;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        height: 50%;
+                        width: 1px;
+                        background: $grey;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+            }
+        }
+    }
+}

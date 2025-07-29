@@ -1,0 +1,198 @@
+// home
+.hero {
+    display: none;
+    @include get-media($laptop, $desktop) {
+        display: block;
+    }
+    &-btn {
+        text-transform: uppercase;
+        padding: 1em 0 !important;
+        background: rgba(#452019, 0.3) !important;
+        border: 1px solid white;
+        &:hover {
+            background: rgba(white, 0.3) !important;
+        }
+    }
+    &-image {
+        .container {
+            height: 100%;
+        }
+    }
+    &-inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        @include button(25%);
+        a {
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+        }
+        .links {
+            margin-top: auto;
+            flex-wrap: nowrap;
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+            a {
+                margin: 0 0.5rem;
+                width: 23%;
+                padding: 1.25em 0;
+                border-color: white;
+                background-color: rgba(#452019, 0.5);
+                &:hover {
+                    background: rgba(white, 0.1) !important;
+                }
+                box-sizing: border-box;
+                border: 1px solid #bab9b9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 5px;
+                border-radius: 3px;
+                color: white;
+                height: 2.4em;
+            }
+        }
+    }
+}
+.categories {
+    &-card {
+        position: relative;
+        margin-top: 2rem;
+        @include get-media($laptop, $desktop) {
+            width: 48%;
+            margin-bottom: 3em;
+        }
+        @include get-media($laptop) {
+            width: 49%;
+        }
+        &__temp {
+            display: none;
+            @include get-media($mobile) {
+                display: block;
+            }
+        }
+        .card {
+            &-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 14px 0 10px;
+            }
+            &-image {
+                width: 100%;
+            }
+            &-title {
+                display: inline-block;
+                text-transform: uppercase;
+            }
+            &-href {
+                position: relative;
+                // font-family: SegoeUI;
+                color: $grey;
+                font-size: 80%;
+                padding-right: 15px;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: 0.65em;
+                    height: 0.65em;
+                    background: transparent;
+                    border-top: 0.14em solid $grey;
+                    border-right: 0.14em solid $grey;
+                    transform: translate3d(0, -50%, 0) rotate(45deg);
+                }
+            }
+            &-link {
+                display: inline-flex;
+                margin: 0 -1em;
+                align-items: flex-start;
+                @include get-media($laptop, $desktop) {
+                    margin: 0;
+                }
+            }
+        }
+        &__swiper {
+            margin: 2em -1em;
+            .swiper-slide {
+                @include get-media($mobile) {
+                    width: calc(100vw / 2 - 1rem);
+                }
+            }
+            @include get-media($laptop, $desktop) {
+                margin: 2rem 0;
+                width: 100%;
+            }
+        }
+        &__mobile {
+            @include get-media($laptop, $desktop) {
+                display: none;
+            }
+        }
+        &__widescreen {
+            @include get-media($mobile) {
+                display: none;
+            }
+        }
+    }
+    &-buttons {
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 0.5em 0;
+            .btn-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 48%;
+                text-align: center;
+                border: 1px solid $grey;
+                text-transform: uppercase;
+                border-radius: 3px;
+                height: 2.25rem;
+                font-size: 85%;
+            }
+        }
+        @include get-media($laptop, $desktop) {
+            display: none;
+        }
+        &__bottom {
+            margin-top: 4rem;
+            @include get-media($laptop, $desktop) {
+                display: block;
+            }
+            .btn-link {
+                margin-bottom: 0.6rem;
+                text-transform: none;
+                @include get-media($laptop, $desktop) {
+                    width: calc(100% / 4 - 14px);
+                    &:hover {
+                        color: $red;
+                    }
+                }
+            }
+        }
+        &__activeRoute {
+            color: $donato-color;
+        }
+        &__inactiveRoute {
+            color: $grey;
+        }
+    }
+    &-wrapper {
+        @include get-media($laptop, $desktop) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+    }
+}

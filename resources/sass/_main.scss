@@ -1,0 +1,520 @@
+@font-face {
+    font-family: "MuseoSans";
+    src: url("/fonts/MuseoSans.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SegoeUI";
+    src: url("/fonts/SegoeUI.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+#app {
+    overflow-x: hidden;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+li {
+    list-style-type: none;
+}
+ul {
+    margin: 0;
+    padding-inline-start: 0;
+}
+svg {
+    fill: $main-color;
+}
+body {
+    margin: 0;
+    font-family: MuseoSans;
+    font-size: 16px;
+    color: $main-color;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input[type="number"],
+[type="text"],
+[type="tel"],
+[type="email"],
+[type="password"],
+textarea {
+    display: block;
+    height: 2.8em;
+    border: 1px solid $line-color;
+    border-radius: 0.25em;
+    margin: 5px 0;
+    width: 100%;
+    font-size: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    transition: $transition;
+}
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.breadcrumb {
+    @include breadCrumbs;
+}
+.social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 0;
+    flex-wrap: wrap;
+    a {
+        width: 49%;
+        box-sizing: border-box;
+        border: 1px solid $grey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+        border-radius: $btn-radius;
+        color: white;
+        height: 2.4em;
+        span {
+            margin-left: 0.5em;
+        }
+    }
+    svg {
+        width: 1em;
+    }
+    .telegram {
+        svg {
+            width: 1.2rem;
+        }
+    }
+    .facebook {
+        svg {
+            height: 1em;
+        }
+    }
+}
+.main {
+    padding-top: $header-height-sm + 20px;
+    @include get-media($desktop) {
+        padding-top: $header-height-xl;
+    }
+    @include get-media($mobile) {
+        min-height: 80vh;
+    }
+    @include get-media($laptop, $desktop) {
+        min-height: 65vh;
+    }
+    .hero {
+        height: 100%;
+        &-image {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center 20%;
+            width: 100%;
+            height: 100vh;
+        }
+    }
+    &-media {
+        @include get-media($laptop, $desktop) {
+            padding-top: 0;
+        }
+    }
+}
+.container {
+    margin: 0 1em;
+    @include get-media($laptop, $desktop) {
+        margin: 0 auto;
+        width: 100%;
+    }
+    @include get-media($desktop) {
+        max-width: 1200px;
+    }
+    @include get-media($laptop) {
+        max-width: 992px;
+    }
+}
+:focus {
+    outline: none;
+}
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+#nprogress {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+    background: $line-color;
+    .bar {
+        background: $donato-color;
+        height: 3px;
+    }
+}
+.text-empty {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 80%;
+}
+::placeholder {
+    color: $grey;
+}
+
+//product card
+.product-card {
+    position: relative;
+    flex-basis: 49.5%;
+    margin-bottom: 2rem;
+    @include get-media($laptop, $desktop) {
+        flex-basis: calc(100% / 4);
+        padding: 0 2px;
+        box-sizing: border-box;
+    }
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        min-height: 50vh;
+        margin: 0 -1em;
+        @include get-media($laptop, $desktop) {
+            justify-content: flex-start;
+            margin: 0;
+            position: relative;
+        }
+    }
+    &__info {
+        padding: 0 8px;
+        display: block;
+    }
+    &__prices {
+        @include prices;
+    }
+    &__brand, &__branch {
+        font-size: 80%;
+        font-weight: bold;
+    }
+    &__title {
+        margin: 2px 0;
+        font-size: 80%;
+    }
+    &__kaspi {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        bottom: 8px;
+        right: 8px;
+        background: url("/images/icon-kaspi-red.svg") center center / 90%
+            no-repeat;
+        z-index: 100;
+    }
+    &__sale {
+        @include newSaleRect($red);
+    }
+    &__new {
+        @include newSaleRect($brown-color);
+    }
+    &__extra-discount {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        background: $red;
+        color: white;
+        height: 13px;
+        width: 64px;
+        font-size: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        border-radius: 4px;
+        padding-top: 2px;
+    }
+    &__image {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+    }
+    &__swiperImageHolder {
+        position: relative;
+        width: 100%;
+        padding-top: calc(100% * 1.3333);
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+    }
+    &__images-wrapper {
+        display: grid;
+        width: 100%;
+        .main-image {
+            width: 100%;
+            padding-top: calc(100% * 1.3333);
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+        }
+        .extra-image {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.2s;
+            width: 100%;
+            padding-top: calc(100% * 1.3333);
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+            @include get-media($laptop, $desktop) {
+                &:hover {
+                    opacity: 1;
+                }
+            }
+            @include get-media($mobile) {
+                display: none;
+            }
+        }
+    }
+    &__sizes {
+        display: inline-block;
+        font-size: 75%;
+        color: $grey;
+        margin-top: 2px;
+    }
+    &__size {
+        float: left;
+        margin-right: 4px;
+    }
+    &__wishes {
+        @include wishes;
+        cursor: pointer;
+    }
+}
+.dummy-products {
+    @include get-media($laptop, $desktop) {
+        display: none;
+    }
+    .product-card {
+        &__image {
+            padding-top: calc(100% * 1.3333);
+            &::before {
+                content: "";
+                position: absolute !important;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                @include bgLoadingAnimation;
+            }
+        }
+        &__prices {
+            @include bgLoadingAnimation;
+            width: 50%;
+            height: 1rem;
+        }
+        &__brand {
+            @include bgLoadingAnimation;
+            width: 30%;
+            height: 1rem;
+        }
+        &__sizes {
+            @include bgLoadingAnimation;
+            width: 70%;
+            height: 1rem;
+            margin: 5px 0;
+        }
+    }
+}
+.control-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em 0 1em;
+    @include get-media($laptop, $desktop) {
+        padding: 2em 0 1em;
+        justify-content: flex-end;
+    }
+    .text {
+        margin-right: 10px;
+    }
+    .navigation {
+        margin-top: 2px;
+        display: flex;
+        @include get-media($laptop, $desktop) {
+            display: none;
+        }
+        .icon-nav {
+            margin-top: 2px;
+            svg {
+                width: 12px;
+                height: 12px;
+                transform: rotate(90deg);
+                margin-top: 2px;
+                transition: all 200ms linear;
+            }
+        }
+        @include isRevealClass;
+    }
+}
+.incorrect {
+    border-color: $red !important;
+}
+.form-group {
+    textarea {
+        height: auto;
+    }
+    label {
+        display: inline-block;
+        max-width: 100%;
+        font-size: 85%;
+    }
+    .form-control {
+        padding: 0 1em;
+        &-required {
+            color: $red;
+        }
+    }
+    .invalid-feedback {
+        display: block;
+        color: $red;
+        font-size: 80%;
+        margin-bottom: 15px;
+    }
+}
+
+.preloader {
+    &__mask-layer {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: #fff;
+        opacity: 0.4;
+        z-index: 110;
+        @include get-media($laptop, $desktop) {
+            position: absolute;
+        }
+    }
+}
+button[disabled] {
+    border: 1px solid $line-color;
+    background-color: transparent !important;
+    color: $line-color !important;
+}
+
+.message {
+    &-snackbar {
+        position: fixed;
+        visibility: hidden;
+        bottom: 15px;
+        height: 24px;
+        left: 0;
+        right: 0;
+        background: #0cb14b;
+        color: white;
+        font-family: SegoeUI;
+        padding: 9px 0;
+        display: flex;
+        align-items: center;
+        z-index: 110;
+        @include get-media($laptop, $desktop) {
+            width: 25%;
+            margin: 0 auto;
+            border-radius: $btn-radius;
+        }
+    }
+    &-text {
+        margin-bottom: 1px;
+        text-align: center;
+        width: 100%;
+    }
+}
+.message-snackbar.show {
+    visibility: visible;
+    animation: message-coming 0.5s, message-leave 0.5s 2.5s;
+}
+.message-snackbar.error {
+    background: $red;
+}
+//pagination
+.pagination {
+    position: relative;
+    display: flex;
+    padding: 4rem 0;
+    justify-content: center;
+    &-item,
+    &-link {
+        margin: 0 1px;
+        color: $main-color;
+        background-color: #fff;
+        border: 1px solid $line-color;
+        transition: all 0.5s ease;
+        a {
+            display: flex;
+            width: 35px;
+            height: 35px;
+            align-items: center;
+            justify-content: center;
+            @include get-media($laptop, $desktop) {
+                &:hover {
+                    background-color: $donato-color;
+                    color: white;
+                }
+            }
+        }
+    }
+    .active {
+        background: $donato-color;
+        color: #fff;
+    }
+}
+// favorite fade
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+// dummy items animation
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+@keyframes message-coming {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes message-leave {
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes background-move {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 20px;
+    }
+}

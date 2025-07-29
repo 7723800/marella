@@ -1,0 +1,190 @@
+ .nav {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -115%;
+        right: 115%;
+        bottom: 0;
+        background: $brown-color;
+        z-index: 110;
+        transition: all 300ms ease-in;
+        box-shadow: 5px 0 20px -5px #222;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        @include get-media($laptop, $desktop) {
+            display: none !important;
+        }
+        &-user {
+            height: $header-height-sm;
+            background-color: $brown-color;
+            fill: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include get-media($desktop) {
+                height: $header-height-xl;
+            }
+            .container {
+                height: auto;
+            }
+            svg {
+                height: 32px;
+                width: 32px;
+                fill: white;
+            }
+            .login {
+                display: flex;
+                align-items: flex-end;
+                color: white;
+                &-title {
+                    margin-left: 18px;
+                    font-size: 18px;
+                    margin-bottom: 1px;
+                }
+            }
+        }
+        @at-root .call-to-action {
+            text-align: center;
+            color: white;
+            a {
+                font-size: 1.5em;
+                font-family: SegoeUI;
+            }
+        }
+        &-overlay {
+            @include overlay;
+            display: none;
+            @include get-media($laptop, $desktop) {
+                display: none !important;
+            }
+            svg {
+                position: absolute;
+                right: 2vw;
+                fill: white;
+                top: 50%;
+                width: 28px;
+            }
+        }
+    }
+    .is-open-sidebar {
+        left: 0;
+        right: 40px;
+    }
+    .menu {
+        &-link {
+            padding: 1em;
+            border-bottom: 1px solid $line-color;
+            position: relative;
+            color: white;
+            @include get-media($laptop, $desktop){
+                border-bottom: none;
+            }
+            &__info {
+                color: $red;
+                border-bottom: 1px solid $line-color;
+                font-size: 15px;
+                background: $line-color;
+                @include get-media($laptop, $desktop) {
+                    display: none;
+                }
+            }
+            .kaspiLogo {
+                position: absolute;
+                width: 24px;
+                right: 1rem;
+            }
+            .link {
+                &-title {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    @include get-media($laptop, $desktop) {
+                        justify-content: flex-start;
+                        margin-left: 1em;
+                    }
+                    svg {
+                        margin-bottom: 3px;
+                        margin-left: 10px;
+                        transform: rotate(90deg);
+                        height: 14px;
+                        width: 14px;
+                        fill: white;
+                        transition: all 300ms linear;
+                    }
+                    &__head {
+                        text-transform: uppercase;
+                    }
+                    &__hero {
+                        margin-left: 0;
+                    }
+                }
+                &-items {
+                    font-family: SegoeUI;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: all 300ms linear;
+                    @include get-media($laptop, $desktop) {
+                        height: calc(100vh - #{$header-height-xl} * 1.5);
+                        overflow-y: auto;
+                        box-sizing: border-box;
+                        scrollbar-width: none;
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+                    }
+                    &__is-reveal {
+                        .link-icon:before {
+                            transform: scale(0);
+                        }
+                    }
+                    & > li:first-child {
+                        padding-top: 15px;
+                        border-top: none;
+                    }
+                }
+                &-sub-item {
+                    & > a {
+                        padding: 10px 0 10px 15px;
+                        border-top: 1px solid $grey;
+                    }
+                    @include get-media($desktop) {
+                        border-top: none;
+                        padding-left: 25px
+                    }
+                    &__head a {
+                        text-transform: uppercase;
+                    }
+                }
+                &-second-level {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: all 0.3s linear;
+                    .second-level-a {
+                        padding-left: 2rem;
+                    }
+                }
+                &-icon {
+                    @include plusIcon;
+                }
+            }
+            @include isRevealClass;
+            .user-link {
+                font-family: SegoeUI;
+            }
+            a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+        &-sublink {
+            padding: 1em 0 1em 1em;
+        }
+    }
+}
+.red {
+    color:$red;
+    font-weight: bold;
+}
