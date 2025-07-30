@@ -443,16 +443,16 @@ class CategoryController extends Controller
         $catalog = new self(new Request());
         $hasWomenNew = DB::table('items')->select('id')->where([['category_id', $momen], ['new', 1]])->first();
         $hasWomenKaspi = DB::table('items')->select('id')->where([['category_id', $momen], ['isKaspi', 1], ['deleted_at', null]])->first();
-        $hasMenNew = DB::table('items')->select('id')->where([['category_id', $men], ['new', 1]])->first();
+        // $hasMenNew = DB::table('items')->select('id')->where([['category_id', $men], ['new', 1]])->first();
         $hasWomenDiscount = DB::table('items')->select('id')->where([['category_id', $momen], ['discount', '!=', 0]])->first();
         $hasWomenOutlet = DB::table('items')->select('id')->where([['category_id', $momen], ['outlet', '!=', 0]])->first();
-        $hasMenOutlet = DB::table('items')->select('id')->where([['category_id', $men], ['outlet', '!=', 0]])->first();
-        $hasMenDiscount = DB::table('items')->select('id')->where([['category_id', $men], ['discount', '!=', 0]])->first();
+        // $hasMenOutlet = DB::table('items')->select('id')->where([['category_id', $men], ['outlet', '!=', 0]])->first();
+        // $hasMenDiscount = DB::table('items')->select('id')->where([['category_id', $men], ['discount', '!=', 0]])->first();
         $deliveryPrice = number_format((int) Configuration::get("DELIVERY_PRICE"), 0, ".", " ");
         $giftcards = DB::table('pages')->select('title')->where('id', 9)->first();
-        $perfumes = DB::table('pages')->select('title')->where('id', 8)->first();
+        // $perfumes = DB::table('pages')->select('title')->where('id', 8)->first();
         $kits = DB::table('pages')->select('title')->where('id', 10)->first();
-        $category_id =  $this->request->c ? (int) $this->request->c : $this->routeCategoryId();
+        $category_id =  1;
         $categories = DB::table('categories')
             ->join('item_sets', 'item_sets.category_id', '=', 'categories.id')
             ->select('categories.name', 'categories.slug', 'item_sets.category_id')
@@ -472,20 +472,20 @@ class CategoryController extends Controller
 
         return (object) array(
             'women_title' => Category::where("id", $momen)->first()->name,
-            'men_title' => Category::where("id", $men)->first()->name,
+            'men_title' => '',
             'women' => $catalog->getSubcategories($momen),
-            'men' => $catalog->getSubcategories($men),
+            'men' => [],
             'women_category_id' => $momen,
             'men_category_id' => $men,
             'is_women_new' => isset($hasWomenNew),
-            'is_men_new' => isset($hasMenNew),
+            'is_men_new' => false,
             'is_women_discount' => isset($hasWomenDiscount),
-            'is_men_discount' => isset($hasMenDiscount),
+            'is_men_discount' => false,
             'is_women_outlet' => isset($hasWomenOutlet),
-            'is_men_outlet' => isset($hasMenOutlet),
+            'is_men_outlet' => false,
             'delivery_price' => $deliveryPrice,
             'giftcards' => $giftcards->title,
-            'perfumes' => $perfumes->title,
+            'perfumes' => '',
             'category_id' => $category_id,
             'sets' => $sets,
             'sets_title' => $kits->title,
@@ -514,9 +514,9 @@ class CategoryController extends Controller
         $data = $this->getItems();
         if (empty($data)) return array();
         return array(
-            'page' => $this->getPageData($this->request->c),
+            'page' => $this->getPageData(1),
             'items' => $data->items,
-            'subcategories' => $this->getSubcategories($this->request->c),
+            'subcategories' => $this->getSubcategories(1),
             'colors' => $this->getColors(),
             'sizes' => $this->getSizes(),
             'brands' => $this->getBrands(),

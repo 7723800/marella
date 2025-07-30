@@ -9,10 +9,10 @@
                         <button class="btn hero-btn">Sale</button>
                     </a>
                     {{-- @yield('social') --}}
-                    <div class="links">
+                    {{-- <div class="links">
                         <a href="{{ route('home-women') }}">Женщинам</a>
                         <a href="{{ route('home-men') }}">Мужчинам</a>
-                    </div>
+                    </div> --}}
                     {{-- <div class="links">
                         <a href="{{ route('category', ['c' => 1, 'items' => 'all']) }}">В каталог</a>
                         <a href="{{ route('category', ['c' => 2, 'items' => 'all']) }}">В каталог</a>
@@ -23,17 +23,17 @@
     </div>
     <div class="container">
         <div class="categories-buttons">
-            <div class="categories-buttons__list">
+            {{-- <div class="categories-buttons__list">
                 <a class="btn-link {{ Route::currentRouteName() == 'home-women' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
                     href="{{ route('home-women') }}">Женщинам</a>
                 <a class="btn-link {{ Route::currentRouteName() == 'home-men' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
                     href="{{ route('home-men') }}">Мужчинам</a>
-            </div>
+            </div> --}}
             <div class="categories-buttons__list">
                 <a class="btn-link {{ Route::currentRouteName() == 'home-women' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
                     href="{{ route('category', ['c' => 1, 'items' => 'all']) }}">В каталог</a>
-                <a class="btn-link {{ Route::currentRouteName() == 'home-men' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
-                    href="{{ route('category', ['c' => 2, 'items' => 'all']) }}">В каталог</a>
+                {{-- <a class="btn-link {{ Route::currentRouteName() == 'home-men' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
+                    href="{{ route('category', ['c' => 2, 'items' => 'all']) }}">В каталог</a> --}}
             </div>
         </div>
         <div class="categories-wrapper">

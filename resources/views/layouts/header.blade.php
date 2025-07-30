@@ -53,7 +53,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="logo">
+                {{-- <div class="logo">
                     <a href="{{ url('/') }}">
                         <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 339.55 29.86" width="160">
                             <g>
@@ -71,7 +71,7 @@
                             </g>
                         </svg>
                     </a>
-                </div>
+                </div> --}}
                 <div class="right-contain">
                     <a href="{{ route('search') }}" class="search-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

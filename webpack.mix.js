@@ -48,7 +48,7 @@ mix.js('resources/js/app.js', 'public/js')
             })
         ]
     })
-    .browserSync('donato.local')
+    .browserSync('marella.local')
     .disableNotifications()
     if (prod) {
         mix.version()

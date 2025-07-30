@@ -1,10 +1,5 @@
 <?php
 
-use CommerceML\Client;
-use App\Jobs\OneCExchange;
-use App\Models\Products\Item;
-use App\Models\OneCExportOrders;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
@@ -25,7 +20,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/home-women', 'HomeController@index')->name('home-women');
-Route::get('/home-men', 'HomeController@index')->name('home-men');
 
 Route::group(['prefix' => 'catalog'], function () {
     Route::get('/', 'CategoryController@index')->name('category');

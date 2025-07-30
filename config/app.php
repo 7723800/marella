@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Marella.kz'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://marella.kz'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -178,11 +178,6 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /*
-        * Протокол обмена информацией с 1С
-        */
-        Mavsan\LaProtocol\Providers\ProtocolProvider::class,
-
-        /*
         * работа с zip архивами
         */
         // Chumper\Zipper\ZipperServiceProvider::class,
@@ -236,12 +231,7 @@ return [
         'Str' => Illuminate\Support\Str::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
-
-        /*
-        * Работа с zip архивами
-        */
-        'Zipper' => Chumper\Zipper\Zipper::class,
+        'View' => Illuminate\Support\Facades\View::class
     ],
 
 ];
