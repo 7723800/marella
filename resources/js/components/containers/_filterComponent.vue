@@ -200,7 +200,7 @@
                     </div>
                     <div class="filters-modal__content">
                         <ul class="filters-modal__list">
-                            <li v-if="isGender" class="filters-modal__item">
+                            <!-- <li v-if="isGender" class="filters-modal__item">
                                 <div class="filters-modal__item-label">
                                     <span>Пол</span>
                                     <div class="segment-control">
@@ -209,7 +209,7 @@
                                         <button @click="toggleGender(2, 'men')" class="btn right" :class="{'is-active': activeGenderID === 2}">Мужчинам</button>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                             <li class="filters-modal__item">
                                 <div v-if="!sortResetBtn" @click="sortPicked = 'default'; sortCategoryItems(null)" class="filters-modal__item-clear"></div>
                                 <div @click="slideSort.play()"  class="filters-modal__item-label">

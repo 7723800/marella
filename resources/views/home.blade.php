@@ -2,7 +2,8 @@
 @include('sections')
 @section('content')
     <div class="hero">
-        <div class="hero-image" style="background-image: url({{ url('storage/' . $pageContent['banner']['image']) }});">
+        <div class="hero-image"
+            style="background-image: url({{ env('APP_URL') . '/storage/' . $pageContent['banner']['image'] }});">
             <div class="container">
                 <div class="hero-inner">
                     <a href="{{ route('category', ['c' => $catalog->category_id, 'items' => 'all', 'is_discount' => 1]) }}">
@@ -22,30 +23,30 @@
         </div>
     </div>
     <div class="container">
-        <div class="categories-buttons">
-            {{-- <div class="categories-buttons__list">
+        {{-- <div class="categories-buttons">
+            <div class="categories-buttons__list">
                 <a class="btn-link {{ Route::currentRouteName() == 'home-women' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
                     href="{{ route('home-women') }}">Женщинам</a>
                 <a class="btn-link {{ Route::currentRouteName() == 'home-men' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
                     href="{{ route('home-men') }}">Мужчинам</a>
-            </div> --}}
+            </div>
             <div class="categories-buttons__list">
                 <a class="btn-link {{ Route::currentRouteName() == 'home-women' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
                     href="{{ route('category', ['c' => 1, 'items' => 'all']) }}">В каталог</a>
-                {{-- <a class="btn-link {{ Route::currentRouteName() == 'home-men' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
-                    href="{{ route('category', ['c' => 2, 'items' => 'all']) }}">В каталог</a> --}}
+                <a class="btn-link {{ Route::currentRouteName() == 'home-men' ? 'categories-buttons__activeRoute' : 'categories-buttons__inactiveRoute' }}"
+                    href="{{ route('category', ['c' => 2, 'items' => 'all']) }}">В каталог</a>
             </div>
-        </div>
+        </div> --}}
         <div class="categories-wrapper">
             <div class="categories-card categories-card__temp" style="margin-left: -1rem; margin-right: -1rem">
                 @if (Request::path() == 'home-women')
                     <video autoplay muted loop playsinline width="100%" height="100%">
-                        <source src="{{ url('storage/' . $pageContent['video']['video']) }}" type="video/mp4">
+                        <source src="{{ env('APP_URL') . '/storage/' . $pageContent['video']['video'] }}" type="video/mp4">
                     </video>
                 @endif
                 @if (Request::path() == 'home-men')
                     <video autoplay muted loop playsinline width="100%" height="100%">
-                        <source src="{{ url('storage/' . $pageContent['video']['video']) }}" type="video/mp4">
+                        <source src="{{ env('APP_URL') . '/storage/' . $pageContent['video']['video'] }}" type="video/mp4">
                     </video>
                 @endif
             </div>
@@ -55,7 +56,7 @@
                     <div class="card-href">Смотреть</div>
                 </a>
                 <a href="{{ route('category', ['c' => $catalog->category_id, 'items' => 'all']) }}" class="card-link">
-                    <img src="{{ url('storage/' . $pageContent['all']['image']) }}" class="card-image">
+                    <img src="{{ env('APP_URL') . '/storage/' . $pageContent['all']['image'] }}" class="card-image">
                 </a>
             </div>
             <div class="categories-card categories-card__widescreen">
@@ -66,7 +67,7 @@
                 </a>
                 <a href="{{ route('category', ['c' => $catalog->category_id, 'items' => 'all', 'is_new' => 1]) }}"
                     class="card-link">
-                    <img src="{{ url('storage/' . $pageContent['new']['image']) }}" class="card-image">
+                    <img src="{{ env('APP_URL') . '/storage/' . $pageContent['new']['image'] }}" class="card-image">
                 </a>
             </div>
             <div class="categories-card categories-card__swiper">
@@ -80,7 +81,7 @@
                 </a>
                 <a href="{{ route('category', ['c' => $catalog->category_id, 'items' => 'all', 'is_new' => 1]) }}"
                     class="card-link">
-                    <img src="{{ url('storage/' . $pageContent['new']['image']) }}" class="card-image">
+                    <img src="{{ env('APP_URL') . '/storage/' . $pageContent['new']['image'] }}" class="card-image">
                 </a>
             </div>
             {{-- <div class="categories-card">

@@ -42,9 +42,9 @@ class CategoryController extends Controller
         $data = $this->getItems();
         if (empty($data)) return array();
         return array(
-            'page' => $this->getPageData($this->request->c),
+            'page' => $this->getPageData(1),
             'items' => $data->items,
-            'subcategories' => $this->getSubcategories($this->request->c),
+            'subcategories' => $this->getSubcategories(1),
             'colors' => $this->getColors(),
             'sizes' => $this->getSizes(),
             'brands' => $this->getBrands(),

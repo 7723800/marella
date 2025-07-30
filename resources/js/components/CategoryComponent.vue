@@ -63,6 +63,7 @@
             :prev-class="'pagination-link'"
             :next-class="'pagination-link'"
             :container-class="'pagination'"
+        >
         </paginate>
             <!-- pagination end-->
 

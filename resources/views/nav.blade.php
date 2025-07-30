@@ -3,7 +3,7 @@
     <div class="menu-column">
         <li class="menu-link">
             <div class="link-title link-title__head">
-                <span>{{ $catalog->women_title }}</span>
+                <span>Каталог</span>
                 <i class="link-icon"></i>
             </div>
             <ul class="link-items">
@@ -77,73 +77,7 @@
             </ul>
         </li>
     </div>
-    <div class="menu-column">
-        <li class="menu-link">
-            <div class="link-title link-title__head">
-                <span>{{ $catalog->men_title }}</span>
-                <i class="link-icon"></i>
-            </div>
-            <ul class="link-items">
-                @if ($catalog->is_men_new)
-                    <li class="link-sub-item link-sub-item__head">
-                        <a
-                            href="{{ route('category', ['c' => $catalog->men_category_id, 'items' => 'all', 'is_new' => 1]) }}">New</a>
-                    </li>
-                @endif
-                @if ($catalog->is_men_discount)
-                    <li class="link-sub-item link-sub-item__head">
-                        <a href="#" class="link-sub-item second-level red">Sale<i class="link-icon"></i></a>
-                        <ul class="link-second-level">
-                            {{-- @foreach ($subcategory['second_subcategories'] as $key => $secondSubcategory) --}}
-                            <li class="link-sub-item">
-                                <a class="second-level-a"
-                                    href="{{ route('category', ['c' => $catalog->men_category_id, 'items' => 'all', 'sale' => 30]) }}">Sale
-                                    - 30%</a>
-                            </li>
-                            <li class="link-sub-item">
-                                <a class="second-level-a"
-                                    href="{{ route('category', ['c' => $catalog->men_category_id, 'items' => 'all', 'sale' => 40]) }}">Sale
-                                    - 40%</a>
-                            </li>
-                            <li class="link-sub-item">
-                                <a class="second-level-a"
-                                    href="{{ route('category', ['c' => $catalog->men_category_id, 'items' => 'all', 'sale' => 50]) }}">Sale
-                                    - 50%</a>
-                            </li>
-                            <li class="link-sub-item">
-                                <a class="second-level-a"
-                                    href="{{ route('category', ['c' => $catalog->men_category_id, 'items' => 'all', 'sale' => 70]) }}">Sale
-                                    - 70%</a>
-                            </li>
-                            {{-- @endforeach --}}
-                        </ul>
-                    </li>
-                @endif
-                {{-- @if ($catalog->is_men_outlet)
-                    <li class="link-sub-item link-sub-item__head">
-                        <a href="{{ route('category', ['c' => $catalog->men_category_id, 'items' => 'all', 'is_outlet' => 1]) }}"
-                            class="red">Outlet</a>
-                    </li>
-                @endif --}}
-                @foreach ($catalog->men as $subcategory)
-                    <li class="link-sub-item">
-                        <a
-                            href="{{ route('category', ['c' => $subcategory['category_id'], 'items' => $subcategory['slug']]) }}">{{ $subcategory['name'] }}</a>
-                        @if (count($subcategory['second_subcategories']))
-                            <ul class="link-second-level">
-                                @foreach ($subcategory['second_subcategories'] as $key => $secondSubcategory)
-                                    <li class="link-sub-item">
-                                        <a class="second-level-a"
-                                            href="{{ route('category', ['c' => $secondSubcategory['category_id'], 'items' => $secondSubcategory['slug']]) }}">{{ $secondSubcategory['name'] }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </li>
-                @endforeach
-            </ul>
-        </li>
-    </div>
+
     <div class="menu-column">
         <li class="menu-link">
             <div class="link-title link-title__head">
@@ -161,8 +95,8 @@
     </div>
     <div class="menu-column">
         <li class="menu-link"><a href="{{ route('office') }}">ОФИС</a></li>
-        <li class="menu-link"><a href="{{ route('perfume') }}"
-                style="text-transform: uppercase">{{ $catalog->perfumes }}</a></li>
+        {{-- <li class="menu-link"><a href="{{ route('perfume') }}"
+                style="text-transform: uppercase">{{ $catalog->perfumes }}</a></li> --}}
         <li class="menu-link"><a href="{{ route('giftcard') }}"
                 style="text-transform: uppercase">{{ $catalog->giftcards }}</a></li>
         <li class="menu-link"><a href="{{ route('blog') }}">БЛОГ</a></li>

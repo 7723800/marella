@@ -25,14 +25,14 @@ Route::group(['prefix' => 'catalog'], function () {
     Route::get('/', 'CategoryController@index')->name('category');
     Route::get('/sets/{slug}', 'SetsController@index')->name('sets');
     Route::get('/office', 'OfficeController@index')->name('office');
-    Route::get('/perfume', 'PerfumeController@index')->name('perfume');
-    Route::get('/perfume/{id}', 'PerfumeController@item');
+    // Route::get('/perfume', 'PerfumeController@index')->name('perfume');
+    // Route::get('/perfume/{id}', 'PerfumeController@item');
     Route::get('/giftcard', 'GiftcardController@index')->name('giftcard');
     Route::get('/giftcard/{id}', 'GiftcardController@item');
     Route::get('{categorySlug}/{subcategorySlug}/{itemID}', 'ItemController@index');
     Route::get('kaspi', 'KaspiStore@create');
     Route::get('women/facebook', 'FacebookStore@women');
-    Route::get('men/facebook', 'FacebookStore@men');
+    // Route::get('men/facebook', 'FacebookStore@men');
     Route::get('women/doublegis', 'DoubleGisController@women');
 });
 
