@@ -63,11 +63,11 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../donato.kz"
+            "url": "../donato"
         },
         {
             "type": "path",
-            "url": "../donato.kz/nova"
+            "url": "../donato/nova"
         }
     ]
 }
