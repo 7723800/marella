@@ -10,10 +10,10 @@
                         <button class="btn hero-btn">Sale</button>
                     </a>
                     {{-- @yield('social') --}}
-                    {{-- <div class="links">
-                        <a href="{{ route('home-women') }}">Женщинам</a>
-                        <a href="{{ route('home-men') }}">Мужчинам</a>
-                    </div> --}}
+                    <div class="links">
+                        {{-- <a href="{{ route('home-women') }}">Женщинам</a>
+                        <a href="{{ route('home-men') }}">Мужчинам</a> --}}
+                    </div>
                     {{-- <div class="links">
                         <a href="{{ route('category', ['c' => 1, 'items' => 'all']) }}">В каталог</a>
                         <a href="{{ route('category', ['c' => 2, 'items' => 'all']) }}">В каталог</a>

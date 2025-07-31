@@ -20,7 +20,7 @@ use Inani\LaravelNovaConfiguration\Helpers\Configuration;
 class CategoryController extends Controller
 {
     public $request;
-    public $query = array();
+    public $query = [['brand_id', 2]];
     public $limit = 24;
     public $sort;
 
