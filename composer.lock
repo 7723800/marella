@@ -86,7 +86,7 @@
             "dist": {
                 "type": "path",
                 "url": "../donato",
-                "reference": "3241d61d2e4a5975742f26ba7badefff4446df95"
+                "reference": "d1cd83f1f93fcd69b5c6b95d0bf2e672f6a87d35"
             },
             "require": {
                 "algolia/algoliasearch-client-php": "^3.3",
