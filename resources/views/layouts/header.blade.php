@@ -1,6 +1,6 @@
 @include('sections')
 @section('header')
-    <header class="header {{ $route === 'home-women' || $route === 'home-men' ? 'header-media' : '' }}">
+    <header class="header {{ $route === 'home' || $route === 'home-men' ? 'header-media' : '' }}">
         <div class="container height-100">
             <div class="header__contain">
                 <div class="left-contain">

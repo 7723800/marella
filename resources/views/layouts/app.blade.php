@@ -26,7 +26,7 @@
 <body>
     <div id="app">
         @yield('header')
-        <main class="main {{ $route === 'home-women' || $route === 'home-men' ? 'main-media' : '' }}">
+        <main class="main {{ $route === 'home' || $route === 'home-men' ? 'main-media' : '' }}">
             @yield('content')
         </main>
         @yield('footer')

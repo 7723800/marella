@@ -499,7 +499,7 @@ class CategoryController extends Controller
         $category_id = null;
         $route = Route::currentRouteName();
         switch ($route) {
-            case 'home-women':
+            case 'home':
                 $category_id = 1;
                 break;
             case 'home-men':
