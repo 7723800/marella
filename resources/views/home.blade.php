@@ -39,16 +39,9 @@
         </div> --}}
         <div class="categories-wrapper">
             <div class="categories-card categories-card__temp" style="margin-left: -1rem; margin-right: -1rem">
-                @if (Request::path() == 'home-women')
-                    <video autoplay muted loop playsinline width="100%" height="100%">
-                        <source src="{{ env('APP_URL') . '/storage/' . $pageContent['video']['video'] }}" type="video/mp4">
-                    </video>
-                @endif
-                @if (Request::path() == 'home-men')
-                    <video autoplay muted loop playsinline width="100%" height="100%">
-                        <source src="{{ env('APP_URL') . '/storage/' . $pageContent['video']['video'] }}" type="video/mp4">
-                    </video>
-                @endif
+                <video autoplay muted loop playsinline width="100%" height="100%">
+                    <source src="{{ env('APP_URL') . '/storage/' . $pageContent['video']['video'] }}" type="video/mp4">
+                </video>
             </div>
             <div class="categories-card">
                 <a class="card-head" href="{{ route('category', ['c' => $catalog->category_id, 'items' => 'all']) }}">
@@ -97,7 +90,7 @@
         <div class="categories-card categories-card__swiper">
             <sale-component :items="{{ json_encode($saleItems) }}"></sale-component>
         </div>
-        @if (Route::currentRouteName() == 'home-women')
+        @if (Route::currentRouteName() == 'home')
             <div class="categories-card categories-card__blog">
                 <home-blog :posts="{{ json_encode($posts) }}"></home-blog>
             </div>

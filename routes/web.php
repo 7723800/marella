@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Request;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('home-women');
-})->name('home');
+Route::get('/home-women', function () {
+    return redirect()->route('home');
+})->name('home-women');
 
-Route::get('/home-women', 'HomeController@index')->name('home-women');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'catalog'], function () {
     Route::get('/', 'CategoryController@index')->name('category');
