@@ -20,6 +20,11 @@
                             {{-- @foreach ($subcategory['second_subcategories'] as $key => $secondSubcategory) --}}
                             <li class="link-sub-item">
                                 <a class="second-level-a"
+                                    href="{{ route('category', ['c' => $catalog->women_category_id, 'items' => 'all', 'sale' => 20]) }}">Sale
+                                    - 20%</a>
+                            </li>
+                            <li class="link-sub-item">
+                                <a class="second-level-a"
                                     href="{{ route('category', ['c' => $catalog->women_category_id, 'items' => 'all', 'sale' => 30]) }}">Sale
                                     - 30%</a>
                             </li>
@@ -35,8 +40,18 @@
                             </li>
                             <li class="link-sub-item">
                                 <a class="second-level-a"
+                                    href="{{ route('category', ['c' => $catalog->women_category_id, 'items' => 'all', 'sale' => 60]) }}">Sale
+                                    - 60%</a>
+                            </li>
+                            <li class="link-sub-item">
+                                <a class="second-level-a"
                                     href="{{ route('category', ['c' => $catalog->women_category_id, 'items' => 'all', 'sale' => 70]) }}">Sale
                                     - 70%</a>
+                            </li>
+                            <li class="link-sub-item">
+                                <a class="second-level-a"
+                                    href="{{ route('category', ['c' => $catalog->women_category_id, 'items' => 'all', 'sale' => 80]) }}">Sale
+                                    - 80%</a>
                             </li>
                             {{-- @endforeach --}}
                         </ul>

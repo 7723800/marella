@@ -13,6 +13,9 @@
                 <a href="/catalog?c=1&items=all&is_discount=1" :class="{'is-active': $route.query.c === '1' && $route.query.items === 'all' && $route.query.is_discount === '1'}" class="catalog-item__head red">Sale</a>
                 <ul class="catalog-second-list">
                     <li class="catalog-item">
+                        <a href="/catalog?c=1&items=all&sale=20" :class="{'is-active': $route.query.c === '1' && $route.query.items === 'all' && $route.query.sale === '20'}">SALE - 20%</a>
+                    </li>
+                    <li class="catalog-item">
                         <a href="/catalog?c=1&items=all&sale=30" :class="{'is-active': $route.query.c === '1' && $route.query.items === 'all' && $route.query.sale === '30'}">SALE - 30%</a>
                     </li>
                     <li class="catalog-item">
@@ -22,7 +25,13 @@
                         <a href="/catalog?c=1&items=all&sale=50" :class="{'is-active': $route.query.c === '1' && $route.query.items === 'all' && $route.query.sale === '50'}">SALE - 50%</a>
                     </li>
                     <li class="catalog-item">
+                        <a href="/catalog?c=1&items=all&sale=60" :class="{'is-active': $route.query.c === '1' && $route.query.items === 'all' && $route.query.sale === '60'}">SALE - 60%</a>
+                    </li>
+                    <li class="catalog-item">
                         <a href="/catalog?c=1&items=all&sale=70" :class="{'is-active': $route.query.c === '1' && $route.query.items === 'all' && $route.query.sale === '70'}">SALE - 70%</a>
+                    </li>
+                    <li class="catalog-item">
+                        <a href="/catalog?c=1&items=all&sale=80" :class="{'is-active': $route.query.c === '1' && $route.query.items === 'all' && $route.query.sale === '80'}">SALE - 80%</a>
                     </li>
                 </ul>
             </li>
