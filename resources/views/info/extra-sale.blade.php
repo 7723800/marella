@@ -18,7 +18,7 @@
                         клиента</li>
                 </ul>
                 <p>Более подробно об акции Вы можете ознакомиться у online-консультанта, нажми <a
-                        href="https://api.whatsapp.com/send?phone=77770015373"><span class="kaspiRed-red">здесь</span></a>
+                        href="https://api.whatsapp.com/send?phone=77775015373"><span class="kaspiRed-red">здесь</span></a>
                     чтобы связаться.</p>
             </div>
         </div>

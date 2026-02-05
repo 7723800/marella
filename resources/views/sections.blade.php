@@ -10,7 +10,7 @@
             </svg>
             <span>Telegram</span>
         </a>
-        <a href="https://api.whatsapp.com/send?phone=77770015373" class="whattsapp" target="_blank">
+        <a href="https://api.whatsapp.com/send?phone=77775015373" class="whattsapp" target="_blank">
             <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="whatsapp"
                 class="svg-inline--fa fa-whatsapp fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512">
@@ -87,7 +87,7 @@
                         <tbody>
                             <tr>
                                 <td height="35">
-                                    <a href="https://api.whatsapp.com/send?phone=77770015373" style="text-decoration:none;"
+                                    <a href="https://api.whatsapp.com/send?phone=77775015373" style="text-decoration:none;"
                                         target="_blank">
                                         <img src="https://donato.kz/images/whattsapp.png"
                                             style="width:20px;display:block;float:left;padding:6px 8px" alt=""
