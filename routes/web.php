@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,4 +75,10 @@ Route::group(['prefix' => 'info'], function () {
     Route::get('/extra-sale', function () {
         return view('info.extra-sale');
     })->name('extra-sale');
+});
+
+Route::group(['prefix' => 'payment'], function () {
+    Route::get('success', 'PaymentController@success');
+    Route::get('fail', 'PaymentController@fail');
+    Route::post('robokassa', 'PaymentController@robokassa');
 });

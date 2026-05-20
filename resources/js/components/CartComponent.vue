@@ -412,8 +412,8 @@ import md5 from 'js-md5';
             startRobokassa(sum) {
                 const startPayment = sum => {
                     const orderNumber = this.order.replace(/\D/g, '')
-                    const signature = md5(`DONATOKZ:${sum}:${orderNumber}:${this.roboData.pass}`)
-                        const url = `https://auth.robokassa.kz/Merchant/Index.aspx?MerchantLogin=DONATOKZ&Culture=ru&Description=Оплата заказа № ${this.order} в интернет магазине Donato.kz&Encoding=utf-8&OutSum=${sum}&InvId=${orderNumber}&SignatureValue=${signature}&IsTest=${this.roboData.isTest}`
+                    const signature = md5(`Marellakz:${sum}:${orderNumber}:${this.roboData.pass}`)
+                        const url = `https://auth.robokassa.kz/Merchant/Index.aspx?MerchantLogin=Marellakz&Culture=ru&Description=Оплата заказа № ${this.order} в интернет магазине Marella.kz&Encoding=utf-8&OutSum=${sum}&InvId=${orderNumber}&SignatureValue=${signature}&IsTest=${this.roboData.isTest}`
                         window.location.href = url
                 }
                 if (this.order) return startPayment(sum)
